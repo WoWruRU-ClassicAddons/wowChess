@@ -1,6 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
- <Script file="localization.lua"/>
+ <Script file="Localization.lua"/>
  
 	<Button name="wowChessBoardSquareTemplate" virtual="true">
 		<Size>
@@ -692,7 +692,7 @@
 				</OnClick>
 			</Scripts>
 		</Button>
-		<Button name="$parentTitleBar" text="wowChess">
+		<Button name="$parentTitleBar" text="wowChess_STR_Title">
 			<ButtonText name="$parentText"/>
 			<NormalFont inherits="GameFontNormal"/>
 			<Size>

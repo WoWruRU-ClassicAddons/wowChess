@@ -1,9 +1,9 @@
 `*******************************************************************
 
-wowChess v2.0b4
+wowChess v2.0
 
 Author: Hexarobi
-8/29/2006
+9/1/2006
 
 *******************************************************************
 
@@ -40,6 +40,7 @@ v2.0
 -Added clock and timed games
 -Changed standard board color to green
 -Moved strings into localization.lua for translating
+-Translated localization.lua into german, if anyone wants to translate into other languages, drop me a line at hexarobi@gmail.com
 
 v1.10
 -Added stalemate check

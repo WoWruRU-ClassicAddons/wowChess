@@ -11,7 +11,7 @@ Description:
 ****************************************************************]]
 
 -- Local variables
-	local version = "200b4"
+	local version = "200"
     	local LastTime = GetTime();
 	local LastChatMsg;
 	local WoW_ChatFrame_OnEvent;
@@ -227,7 +227,7 @@ function wowChess_CommandHandler(command, opp)
 	
 	-- Your challenge has been denied
 	if (command == "challengedenied") then
-		challengedOpp = 0;
+		challengedOpp = "";
 	end
 
 end
@@ -1179,7 +1179,7 @@ end
 
 --You have been challenged, show confirm dialog
 function wowChess_Challenged(opp, time)
-	if (challenger==0) then
+	if (challenger=="") then
 		local start,stop,totalTime,moveBonus = string.find(time, '([0-9]+)/([0-9]+)');
 		if (start==1) then
 			timeLimit = tonumber(totalTime)*60;
@@ -1213,7 +1213,7 @@ end
 function wowChess_ChallengeNoButton()
 	if (confirmMode=="challenge") then
 		SendChatMessage("cm challengedenied", "WHISPER", nil, challenger);
-		challenger = 0;
+		challenger = "";
 	elseif (confirmMode=="draw") then
 		wowChess_SendTell("cm drawdenied");
 	end
@@ -1425,8 +1425,8 @@ end
 
 --Clears board and opponent
 function wowChess_ResetBoard()
-	challenger = 0;
-	challengedOpp = 0;
+	challenger = "";
+	challengedOpp = "";
 	blackJail = { p=0, n=0, b=0, r=0, q=0 };
 	whiteJail = { p=0, n=0, b=0, r=0, q=0 };
 	wowChess_opponent = 0;
@@ -1496,8 +1496,8 @@ function wowChess_StartGame()
 	else	
 		wowChess_msg(wowChess_STR_BlackOpening);
 	end
-	challenger = 0;
-	challengedOpp = 0;
+	challenger = "";
+	challengedOpp = "";
 end
 
 function wowChess_DrawGame()
@@ -1509,6 +1509,7 @@ function wowChess_DrawGame()
 end
 
 function wowChess_EndGame(winColor)
+	clockRunning = nil;
 	local winner, loser;
 	if (winColor == "l") then
 		winner = wowChess_STR_White;
